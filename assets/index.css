@@ -1,0 +1,178 @@
+.arrowup {
+    width: 55px;
+    height: 55px;
+    bottom: 0px;
+    left: 20px;
+    position: fixed;
+    z-index: 1;
+    filter: hue-rotate(45deg);
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    float: left;
+    object-fit: contain;
+}
+
+.white {
+    color: white;
+}
+
+h2 {
+    font-size: 1.6rem !important;
+}
+
+.slds-form-element {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2%;
+}
+
+.slds-form-element__label,
+.slds-form-element__control {
+    width: 50vw;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.slds-trial-header {
+    background-color: #1D0063 !important;
+}
+
+html {
+    background-image: radial-gradient(circle at top right, rgb(108, 28, 108) 0%, rgb(108, 28, 108) 3%, rgb(29, 0, 99) 3%, rgb(29, 0, 99) 50%, rgb(108, 28, 108) 50%, rgb(108, 28, 108) 60%, rgb(155, 14, 131) 60%, rgb(155, 14, 131) 63%, rgb(201, 1, 155) 63%, rgb(201, 1, 155) 100%) !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    min-height: 100vh !important;
+}
+
+table {
+    width: 80vw !important;
+    display: block;
+    margin: 20px auto;
+}
+
+img {
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    max-height: 100px;
+}
+
+thead {
+    padding: 2%;
+    margin: auto;
+    width: 100%;
+    display: block;
+}
+
+tr {
+    display: flex;
+    width: 100%;
+    place-content: center;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+tr:hover {
+    border-left: 2px solid #FF305C;
+}
+
+.slds-truncate {
+    border: 0 !important;
+    box-shadow: none !important;
+    white-space: break-spaces !important;
+    height: auto;
+}
+
+.itemavatar {
+    width: 25% !important;
+}
+
+@media(max-width:690px) {
+    table {
+        width: 98vw !important;
+    }
+    .slds-form-element__label,
+    .slds-form-element__control {
+        width: 90vw;
+        margin: auto;
+    }
+}
+
+.slds-table thead th {
+    background-color: transparent !important;
+    border: 0;
+    color: white !important;
+}
+
+.slds-table_bordered {
+    border: 0 !important;
+}
+
+tbody {
+    width: 100%;
+    display: block;
+}
+
+table {
+    border: 1px solid #FF305C;
+    background-color: #EEEEEE;
+    width: 100%;
+}
+
+table tbody td {
+    font-size: 13px;
+}
+
+table thead {
+    background: #FF305C;
+    background: -moz-linear-gradient(top, #ff6485 0%, #ff446c 66%, #FF305C 100%);
+    background: -webkit-linear-gradient(top, #ff6485 0%, #ff446c 66%, #FF305C 100%);
+    background: linear-gradient(to bottom, #ff6485 0%, #ff446c 66%, #FF305C 100%);
+    border-bottom: 2px solid #444444;
+}
+
+th {
+    color: #FFFFFF !important;
+    border: 0;
+    width: 25% !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+b,
+a {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    position: absolute;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #C9019B;
+    height: 80px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1D0063;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: lighten(#1D0063, 5%);
+    transition: .5s;
+}

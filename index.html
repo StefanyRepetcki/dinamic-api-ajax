@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Teste Stefany</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/index.css">
+    <!-- lightning design system -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.12.1/styles/salesforce-lightning-design-system.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="slds-trial-header">
+        <div class="header">
+            <img class="logo" src="assets/logo.png">
+        </div>
+    </div>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="select-01"><h2 class="white">Selecione a linguagem</h2></label>
+        <div class="slds-form-element__control">
+            <div class="slds-select_container">
+                <select class="slds-select" id="linguagem" onchange="linguagem()">
+                    <option value="0">Selecione a linguagem</option>
+                    <option value="java">Java</option>
+                    <option value="c">C</option>
+                    <option value="php">PHP</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">Javascript</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <table style="display: none;" class="slds-table slds-table_cell-buffer slds-table_bordered purpleHorizon">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th scope="slds-col">
+                    <div class="slds-truncate">Foto do usuário</div>
+                </th>
+                <th scope="slds-col">
+                    <div class="slds-truncate">Nome do repositório</div>
+                </th>
+                <th scope="slds-col">
+                    <div class="slds-truncate">Estrela</div>
+                </th>
+                <th scope="slds-col">
+                    <div class="slds-truncate">Garfos</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="avatar">
+
+            <!--estrutura do ajax-->
+
+        </tbody>
+    </table>
+    <a class="botaoparavoltar" onclick="scrollTopAnimated()" style="display: none;"><img class="arrowup" src="assets/multimedia-option.png"></a>
+    <script>
+        //funcao de selecionar a linguagem
+        function linguagem() {
+            $("table").css("display", "block");
+            $("#avatar").empty("tr");
+            // pegando qual linguagem foi selecionada
+            var linguagem = document.getElementById("linguagem").value;
+            //chamando api via ajax passando a linguagem selecionada
+            if (linguagem != 0) {
+                $("#avatar").append("<img class='carregando' src='assets/carregando.gif'>");
+                $.ajax({
+                    url: "https://api.github.com/search/repositories?q=language:" + linguagem + "&sort=stars&page=1",
+                    dataType: 'json',
+                    success: function(data) {
+                        //limpar tabela           
+                        $(".carregando").remove();
+
+                        // iterando e retornando os conteudos da api
+                        for (var i = 0; i < data.items.length; i++) {
+                            $("#avatar").append('<tr class="slds-hint-parent">' + '<td class="slds-truncate itemavatar"><img src=' + data.items[i].owner.avatar_url + '></td>' + '<td class="slds-truncate itemavatar">' + data.items[i].full_name + '</td>' + '<td class="slds-truncate itemavatar">' + data.items[i].score + '</td>' + '<td class="slds-truncate itemavatar">' + data.items[i].forks + '</td>' + '</tr>').hide().fadeIn(1000);
+                        }
+                    }
+                });
+            }
+        };
+
+        function scrollTopAnimated() {
+            var body = $("html, body");
+            body.stop().animate({
+                scrollTop: 0
+            }, 500, 'swing');
+        }
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 200) {
+                $(".botaoparavoltar").css("display", "block");
+            } else {
+                $(".botaoparavoltar").css("display", "none");
+            }
+        });
+    </script>
+</body>
+<html>
