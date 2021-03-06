@@ -95,6 +95,10 @@ tr:hover {
     width: 25% !important;
 }
 
+.itemavatar, .slds-hint-parent {
+    background-color: transparent !important;
+}
+
 @media(max-width:690px) {
     table {
         width: 98vw !important;

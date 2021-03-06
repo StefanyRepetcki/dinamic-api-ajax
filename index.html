@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Teste Stefany</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="assets/index.css">
     <!-- lightning design system -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.12.1/styles/salesforce-lightning-design-system.min.css">
@@ -16,7 +16,7 @@
 <body>
     <div class="slds-trial-header">
         <div class="header">
-            <img class="logo" src="assets/logo.png">
+            <img class="img logo" src="assets/image/logo.png">
         </div>
     </div>
     <div class="slds-form-element">
@@ -58,7 +58,7 @@
 
         </tbody>
     </table>
-    <a class="botaoparavoltar" onclick="scrollTopAnimated()" style="display: none;"><img class="arrowup" src="assets/multimedia-option.png"></a>
+    <a class="botaoparavoltar" onclick="scrollTopAnimated()" style="display: none;"><img class="arrowup" src="assets/image/multimedia-option.png"></a>
     <script>
         //funcao de selecionar a linguagem
         function linguagem() {
@@ -68,7 +68,7 @@
             var linguagem = document.getElementById("linguagem").value;
             //chamando api via ajax passando a linguagem selecionada
             if (linguagem != 0) {
-                $("#avatar").append("<img class='carregando' src='assets/carregando.gif'>");
+                $("#avatar").append("<img class='carregando' src='assets/gif/carregando.gif'>");
                 $.ajax({
                     url: "https://api.github.com/search/repositories?q=language:" + linguagem + "&sort=stars&page=1",
                     dataType: 'json',
